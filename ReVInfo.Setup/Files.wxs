@@ -1,0 +1,43 @@
+﻿<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+	<DirectoryRef Id="TARGETDIR">
+	<Directory Id="ProgramFiles64Folder" Name="PFiles">
+		<Directory Id="INSTALLDIR" Name="ReVInfo">
+			<Component Id="RevitVersionInfo" Guid="513E7C61-B2E9-49E6-B4AC-B3A1989F0109" DiskId="1" Win64="yes">
+				<File Id="LicenseFile" Name="license.rtf" Source="license.rtf" />
+				<File Id="ReVInfo.exe" Name="ReVInfo.exe" Source="..\bin\Release\ReVInfo.exe" />
+				<File Id="OpenMcdf.dll" Name="OpenMcdf.dll" Source="..\bin\Release\OpenMcdf.dll" />
+			</Component>
+			<Component Id="DirectoryRegistryEntries" Guid="16A97CEB-F9B5-4E6F-BC25-96142E6F46D7">
+				<RegistryKey Key="Directory\shell\ReVInfo\command" Root="HKCR">
+					<RegistryValue Value="C:\Program Files\ReVInfo\ReVInfo.exe &quot;%v&quot;" Type="string" />
+				</RegistryKey>
+				<RegistryKey Key="Directory\shell\ReVInfo" Root="HKCR">
+					<RegistryValue Value="&amp;Revit File Version (Selected Directory)" Type="string" />
+					<RegistryValue Name="icon" Value="C:\Program Files\ReVInfo\ReVInfo.exe,0" Type="string" />
+				</RegistryKey>
+			</Component>
+			<Component Id="FileRegistryEntries" Guid="B615C3B5-89E3-478A-9B51-74733DDF9A56">
+				<RegistryKey Key="*\shell\ReVInfo\command" Root="HKCR">
+					<RegistryValue Value="C:\Program Files\ReVInfo\ReVInfo.exe &quot;%1&quot;" Type="string" />
+				</RegistryKey>
+				<RegistryKey Key="*\shell\ReVInfo" Root="HKCR">
+					<RegistryValue Value="Revit File Version Information" Type="string" />
+					<RegistryValue Name="AppliesTo" Value="System.FileName:&quot;*.rfa&quot; OR System.FileName:&quot;*.rvt&quot;" Type="string" />
+					<RegistryValue Name="icon" Value="C:\Program Files\ReVInfo\ReVInfo.exe,0" Type="string" />
+				</RegistryKey>
+			</Component>
+			<Component Id="BackgroundRegistryEntries" Guid="B1C3CB55-5A76-4741-9B46-CB4F38DAB886">
+				<RegistryKey Key="Directory\Background\shell\ReVInfo\command" Root="HKCR">
+					<RegistryValue Value="C:\Program Files\ReVInfo\ReVInfo.exe &quot;%v&quot;" Type="string" />
+				</RegistryKey>
+				<RegistryKey Key="Directory\Background\shell\ReVInfo" Root="HKCR">
+					<RegistryValue Value="&amp;Revit File Version (Current Directory)" Type="string" />
+					<RegistryValue Name="icon" Value="C:\Program Files\ReVInfo\ReVInfo.exe,0" Type="string" />
+				</RegistryKey>
+			</Component>
+		</Directory>
+	</Directory>
+</DirectoryRef>
+	</Fragment>
+</Wix>

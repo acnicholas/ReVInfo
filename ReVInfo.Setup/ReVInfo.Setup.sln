@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+#Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "ReVInfo.Setup", "ReVInfo.Setup.wixproj", "{C028C213-FA00-4FB4-AC09-6F803EE58912}"
+#EndProject
+Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "ReVInfo.Setup", "ReVInfo.Setup.wixproj", "{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C028C213-FA00-4FB4-AC09-6F803EE58912}.Debug|x64.ActiveCfg = Debug|x64
+		{C028C213-FA00-4FB4-AC09-6F803EE58912}.Debug|x64.Build.0 = Debug|x64
+		{C028C213-FA00-4FB4-AC09-6F803EE58912}.Release|x64.ActiveCfg = Release|x64
+		{C028C213-FA00-4FB4-AC09-6F803EE58912}.Release|x64.Build.0 = Release|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Debug|x64.ActiveCfg = Debug|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Debug|x64.Build.0 = Debug|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Release|x64.ActiveCfg = Release|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal

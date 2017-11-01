@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# SharpDevelop 5.1
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReVInfo", "ReVInfo.csproj", "{6B40E3DD-0283-4715-ACFA-5A82380A2141}"
+EndProject
+Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "ReVInfo.Setup", "ReVInfo.Setup\ReVInfo.Setup.wixproj", "{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B40E3DD-0283-4715-ACFA-5A82380A2141}.Debug|x64.ActiveCfg = Debug|x64
+		{6B40E3DD-0283-4715-ACFA-5A82380A2141}.Debug|x64.Build.0 = Debug|x64
+		{6B40E3DD-0283-4715-ACFA-5A82380A2141}.Release|x64.ActiveCfg = Release|x64
+		{6B40E3DD-0283-4715-ACFA-5A82380A2141}.Release|x64.Build.0 = Release|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Debug|x64.ActiveCfg = Debug|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Debug|x64.Build.0 = Debug|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Release|x64.ActiveCfg = Release|x64
+		{F19FC5BF-38C2-40CD-81BD-B2FCA0BAF38A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal
