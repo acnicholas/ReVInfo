@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="ReVInfo" Language="1033" Version="1.0.0.0" UpgradeCode="11A16B41-6604-42C8-9767-67E055A8E2AF" Manufacturer="Andrew Nicholas">
+        <Package Description="#Revit Version Informtaion" Comments="Display Revit version information by selected files or directories from Windows explorer" InstallerVersion="200" Compressed="yes" />
+        <!--
+            Source media for the installation. 
+             Specifies a single cab file to be embedded in the installer's .msi. 
+        -->
+        <Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high" />
+        <!-- Installation directory and files are defined in Files.wxs -->
+        <Directory Id="TARGETDIR" Name="SourceDir" />
+        <Feature Id="Complete" Title="ReVIinfo" Description="ReVInfo - Revit Version Information" Level="1">
+            <ComponentRef Id="RevitVersionInfo" />
+            <ComponentRef Id="DirectoryRegistryEntries" />
+            <ComponentRef Id="FileRegistryEntries" />
+            <ComponentRef Id="BackgroundRegistryEntries" />
+        </Feature>
+        
+        <!--<WixVariable Id="WixUIDialogBmp" Value="wixd.bmp" /> -->
+        <!--<WixVariable Id="WixUIBannerBmp" Value="wixb.bmp" /> -->
+        <Icon Id="revinfo.ico" SourceFile="..\revinfo.ico" />
+        <Property Id="ARPPRODUCTICON" Value="revinfo.ico" />
+        <Property Id="ARPCONTACT" Value="andrewn@scottcarver.com.au" />
+        <Property Id="ARPHELPLINK" Value="https://github.com/acnicholas/revinfo"/>
+        <Property Id="ARPURLUPDATEINFO" Value="https://github.com/acnicholas/revinfo/releases" />
+        
+        <!--
+             Using the Wix UI library.
+
+            WixUI_Minimal is the most basic of the WixUI stock dialog sets.
+            Its sole dialog combines the welcome and license-agreement 
+            dialogs and omits the feature customization dialog. 
+            WixUI_Minimal is appropriate when your product has no optional 
+            features.
+         -->
+        <UIRef Id="WixUI_Minimal" />
+    </Product>
+</Wix>
