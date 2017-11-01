@@ -4,7 +4,7 @@
 	<Directory Id="ProgramFiles64Folder" Name="PFiles">
 		<Directory Id="INSTALLDIR" Name="ReVInfo">
 			<Component Id="RevitVersionInfo" Guid="513E7C61-B2E9-49E6-B4AC-B3A1989F0109" DiskId="1" Win64="yes">
-				<File Id="LicenseFile" Name="license.rtf" Source="license.rtf" />
+				<File Id="LicenseFile" Name="COPYING" Source="..\COPYING" />
 				<File Id="ReVInfo.exe" Name="ReVInfo.exe" Source="..\bin\Release\ReVInfo.exe" />
 				<File Id="OpenMcdf.dll" Name="OpenMcdf.dll" Source="..\bin\Release\OpenMcdf.dll" />
 			</Component>
