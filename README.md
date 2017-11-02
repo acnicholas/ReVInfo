@@ -15,21 +15,28 @@ ReVInfo has three modes depending on context:
 
 ### screen shots ###
 
+
+![Directory display form](img/form.png "Directory display form")
+
+**Figure 1** Dialog displayed when a directory/folder is selected.
+
+
+
 ![File Context Menu](img/file_context.png "File Context Menu")
 
-**Figure 1** Right Click on a single file to display a simple dialog
+**Figure 2** Right Click on a single file to display a simple dialog
 
 
 
 ![Directory Context Menu](img/dir_context.png "Directory Context Menu")
 
-**Figure 2** Right Click on a directory to display information on Revit file in that directory.
+**Figure 3** Right Click on a directory to display information on Revit file in that directory.
 
 
 
 ![Background Context Menu](img/bg_context.png "Background Context Menu")
 
-**Figure 3** Right Click on the background to display information on Revit files in the current directory.
+**Figure 4** Right Click on the background to display information on Revit files in the current directory.
 
 
 
