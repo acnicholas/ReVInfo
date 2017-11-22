@@ -30,17 +30,24 @@ namespace ReVInfo
         public MainForm()
         {
             string[] args = System.Environment.GetCommandLineArgs();
+            string val = string.Empty;
             if (args.Length != 2) {
-                Environment.Exit(0);
+                if(Directory.Exists(@"C:\Revit 2017 Local")) {
+                    val = @"C:\Revit 2017 Local";
+                } else {
+                    Environment.Exit(0);
+                }
+            } else {
+                val = args[1];
             }
             
-            FileAttributes attr = File.GetAttributes(args[1]);
+            FileAttributes attr = File.GetAttributes(val);
             if (attr.HasFlag(FileAttributes.Directory)) {
                 InitializeComponent();
-                this.Text = "RevitFileVersion <" + Path.GetDirectoryName(args[1]) +">";
-                ShowMultiFileInfo(GetMultiFileInfo(args[1]));
+                this.Text = "RevitFileVersion <" + Path.GetDirectoryName(val) +">";
+                ShowMultiFileInfo(GetMultiFileInfo(val));
             } else {
-                ShowSingleFileInfo(GetFileInfo(args[1],Path.GetExtension(args[1])));
+                ShowSingleFileInfo(GetFileInfo(val,Path.GetExtension(val)));
                 Environment.Exit(0);
             }
         }
@@ -50,16 +57,16 @@ namespace ReVInfo
             System.Windows.Forms.MessageBox.Show(fileInfo.Version, "Version info for" + fileInfo.Name);        
         }
         
-        private void ShowMultiFileInfo(BindingList<FileInfo> fileInfoList)
+        private void ShowMultiFileInfo(SortableBindingListCollection<FileInfo> fileInfoList)
         {
             this.dataGridView1.DataSource = fileInfoList;
             this.Show();
         }
         
-        private BindingList<FileInfo> GetMultiFileInfo(string dirName)
+        private SortableBindingListCollection<FileInfo> GetMultiFileInfo(string dirName)
         {
             
-            BindingList<FileInfo> result = new BindingList<FileInfo>();
+            SortableBindingListCollection<FileInfo> result = new SortableBindingListCollection<FileInfo>();
             string[] files = System.IO.Directory.GetFiles(dirName, "*.rvt"); 
             foreach (string file in files) {
                 result.Add(GetFileInfo(file, "Model"));
@@ -97,8 +104,8 @@ namespace ReVInfo
         
         private void DataGridView1ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var selectedColumn = e.ColumnIndex;
-            dataGridView1.Sort(dataGridView1.Columns[selectedColumn],System.ComponentModel.ListSortDirection.Ascending);
+            //var selectedColumn = e.ColumnIndex;
+            //dataGridView1.Sort(dataGridView1.Columns[selectedColumn],ListSortDirection.Ascending);
         }
     }
     
