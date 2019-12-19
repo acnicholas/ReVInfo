@@ -32,15 +32,15 @@ namespace ReVInfo
             string[] args = System.Environment.GetCommandLineArgs();
             string val = string.Empty;
             if (args.Length != 2) {
-                if(Directory.Exists(@"C:\Revit 2017 Local")) {
-                    val = @"C:\Revit 2017 Local";
+                if(Directory.Exists(@"C:\Revit 2016 Local")) {
+                    val = @"C:\Revit 2016 Local";
                 } else {
                     Environment.Exit(0);
                 }
             } else {
                 val = args[1];
             }
-            
+ 
             FileAttributes attr = File.GetAttributes(val);
             if (attr.HasFlag(FileAttributes.Directory)) {
                 InitializeComponent();
@@ -51,7 +51,7 @@ namespace ReVInfo
                 Environment.Exit(0);
             }
         }
-        
+
         private void ShowSingleFileInfo(FileInfo fileInfo)
         {
             System.Windows.Forms.MessageBox.Show(fileInfo.Version, "Version info for" + fileInfo.Name);        
@@ -80,20 +80,27 @@ namespace ReVInfo
         
         private FileInfo GetFileInfo(string FileName, string type)
         {
+            //// var encoding = GetEncoding(FileName);
             string versionString = string.Empty;
             OpenMcdf.CompoundFile file = new OpenMcdf.CompoundFile(FileName);
             CFStream stream = file.RootStorage.GetStream("BasicFileInfo");
             string s = Encoding.BigEndianUnicode.GetString(stream.GetData());
-            Regex rgMatchLines = new Regex (@"Revit Build:.*\d{4} ");
+            ////Regex rgMatchLines = new Regex (@"Format:.*\d{4} ");
+            Regex rgMatchLines = new Regex(@"Revit Build:.*\d{4} |F o r m a t:  \d \d \d \d |Format:.*\d{4}");
+            ////Regex rgMatchLines = new Regex(@"Revit Build:.*\d{4} ");
             foreach (Match match in rgMatchLines.Matches(s)) {
                 versionString += match.Value + System.Environment.NewLine;
             }
-            
+
             s = Encoding.Unicode.GetString(stream.GetData());
-            rgMatchLines = new Regex (@"Revit Build:.*\d{4} ");
-            foreach (Match match in rgMatchLines.Matches(s)) {
+            ////Regex rgMatchLines = new Regex (@"Format:.*\d{4} ");
+            ////rgMatchLines = new Regex(@"Revit Build:.*\d{4} |Format:.*\d{4} ");
+            ////Regex rgMatchLines = new Regex(@"Revit Build:.*\d{4} ");
+            foreach (Match match in rgMatchLines.Matches(s))
+            {
                 versionString += match.Value + System.Environment.NewLine;
             }
+
             return new FileInfo(GetFileName(FileName), versionString, type);
         }
 
