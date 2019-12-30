@@ -5,6 +5,7 @@
     <ProjectTypeGuids>{CFEE4113-1246-4D54-95CB-156813CB8593}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <DefineSolutionProperties>false</DefineSolutionProperties>
     <OutputType>Package</OutputType>
     <RootNamespace>ReFInfo.Setup</RootNamespace>
     <OutputName>ReVInfo.Setup</OutputName>

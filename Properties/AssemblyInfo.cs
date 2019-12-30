@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andrew Nicholas - andrewn@scottcarver.com.au")]
 [assembly: AssemblyProduct("ReVInfo")]
-[assembly: AssemblyCopyright("Copyright 2017 Andrew Nicholas")]
+[assembly: AssemblyCopyright("Copyright 2017-2019 Andrew Nicholas")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -28,4 +28,4 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can use the default the Revision and 
 // Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion("1.1.0")]
+[assembly: AssemblyVersion("1.1.1.1")]
