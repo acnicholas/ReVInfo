@@ -15,22 +15,28 @@ You should have received a copy of the GNU General Public License
 along with ReVInfo.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System.Windows.Forms;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
 namespace ReVInfo
 {
-    public partial class MainForm : Form
+    public class FileInfo
     {
-        public MainForm(string title, List<FileInfo> contents)
+        public string Name
         {
-            InitializeComponent();
-            this.Text = title;
-            this.dataGridView1.DataSource = new SortableBindingListCollection<FileInfo>(contents);
-            this.Show();
+            get;  private set;
+        }
+        public string Version
+        {
+            get; private set;
+        }
+        public string Type
+        {
+            get; private set;
+        }
+
+        public FileInfo(string name, string version, string type)
+        {
+            Name = name;
+            Version = version;
+            Type = type;
         }
     }
 }

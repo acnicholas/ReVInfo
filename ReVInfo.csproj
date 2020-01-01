@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileInfo.cs" />
     <Compile Include="ReVInfoMainForm.cs" />
     <Compile Include="ReVInfoMainForm.Designer.cs">
       <DependentUpon>ReVInfoMainForm.cs</DependentUpon>
