@@ -38,14 +38,17 @@ namespace ReVInfo
                 {
                     var fileType = Path.GetExtension(path) == ".rvt" ? "Model" : "Family";
                     ShowSingleFileInfo(GetFileInfo(path, fileType));
+                    Environment.Exit(0);
                 }
                 if (Directory.Exists(path))
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
                     Application.Run(new MainForm(Path.GetFullPath(path), GetMultipleFileInfo(path)));
+                    Environment.Exit(0);
                 }
             }
+            Environment.Exit(1);
         }
 
         private static void ShowSingleFileInfo(FileInfo fileInfo)
