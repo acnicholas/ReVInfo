@@ -25,11 +25,20 @@ Task("Clean").Does(() => CleanDirectory(buildDir));
 
 Task("Restore-NuGet-Packages").Does(() => NuGetRestore(solutionFile));
 
+Task("Restore-Installer-NuGet-Packages").Does(() => 
+		{
+		var settings = new NuGetRestoreSettings();
+		settings.PackagesDirectory = @"ReVInfo.Setup/packages";
+		settings.WorkingDirectory = @"ReVInfo.Setup";
+		NuGetRestore(solutionFileWix, settings);
+		});
+
 Task("Release")
 .IsDependentOn("Restore-NuGet-Packages")
 .Does(() => MSBuild(solutionFile, GetBuildSettings()));
 
 Task("Installer")
+.IsDependentOn("Restore-Installer-NuGet-Packages")
 .Does(() =>
 		{
 	    var settings = new MSBuildSettings();
