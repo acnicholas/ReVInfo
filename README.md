@@ -13,6 +13,11 @@ ReVInfo has three modes depending on context:
 
 [Latest download](https://github.com/acnicholas/revinfo/releases/latest)
 
+#### How to fix administator install rights click issue ####
+
+- Open Two register keys example form [here](./Reg%20files/) and change the path to the location of the ReVInfo.exe file.
+- Run the register keys to add the keys to the registry.
+
 ### screen shots ###
 
 
