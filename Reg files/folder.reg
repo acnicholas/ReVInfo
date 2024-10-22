@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\Folder\shell\RevitFileVersion]
+@="Revit File Version (Current Directory)"
+"Icon"="D:\\API\\Revit\\ReVInfo\\revinfo.ico"
+
+[HKEY_CURRENT_USER\Software\Classes\Folder\shell\RevitFileVersion\command]
+@="\"D:\\API\\Revit\\ReVInfo\\bin\\Debug\\ReVInfo.exe\" \"%V\""
