@@ -17,6 +17,7 @@ along with ReVInfo.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
@@ -31,13 +32,38 @@ namespace ReVInfo
             string[] args = Environment.GetCommandLineArgs();
             string val = string.Empty;
             if (args.Length != 2) {
-                // TODO
-                // Add file/Directory Selelection option when opened with no args.
-                if (Directory.Exists(@"C:\Revit 2019 Local")) {
-                    val = @"C:\Revit 2019 Local";
-                } else {
-                    // TODO edd error message.
+                // Show a message box to ask if user wants to select a file or folder
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Welcome to ReVInfo!");
+                sb.AppendLine("Would you like to select a file or a folder?");
+                sb.AppendLine("[Yes] to select a file");
+                sb.AppendLine("[No] to select a folder, or [Cancel] to exit.");
+                DialogResult result = MessageBox.Show(sb.ToString(), "Select file or folder",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    val = SelectFile();
+                }
+                else if (result == DialogResult.No)
+                {
+                    val = SelectFolder();
+                }
+                else
+                {
                     Environment.Exit(0);
+                }
+
+                // Check if a value (file/folder) was selected
+                if (string.IsNullOrEmpty(val))
+                {
+                    Console.WriteLine("No selection was made.");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine($"You selected: {val}");
                 }
             } else {
                 val = args[1];
@@ -61,6 +87,27 @@ namespace ReVInfo
                 ShowSingleFileInfo(GetFileInfo(val,Path.GetExtension(val)));
                 Environment.Exit(0);
             }
+        }
+        private string SelectFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Revit files (*.rvt, *.rfa)|*.rvt;*.rfa|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                return openFileDialog.FileName;
+            }
+            return string.Empty;
+        }
+        private string SelectFolder()
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                return folderBrowserDialog.SelectedPath;
+            }
+            return string.Empty;
         }
 
         private void ShowSingleFileInfo(FileInfo fileInfo)
