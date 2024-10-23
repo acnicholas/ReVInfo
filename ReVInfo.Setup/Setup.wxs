@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="*" Name="ReVInfo" Language="1033" Version="1.1.2" UpgradeCode="11A16B41-6604-42C8-9767-67E055A8E2AF" Manufacturer="Andrew Nicholas">
+    <Product Id="*" Name="ReVInfo" Language="1033" Version="1.2.0" UpgradeCode="11A16B41-6604-42C8-9767-67E055A8E2AF" Manufacturer="Andrew Nicholas">
         <Package Description="#Revit Version Informtaion" Comments="Display Revit version information by selected files or directories from Windows explorer" InstallerVersion="200" Compressed="yes" />
         <!--
             Source media for the installation. 
